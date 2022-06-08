@@ -1,0 +1,15 @@
+blokus\view\AppLauncher.class
+blokus\Main.class
+blokus\view\FXComponent.class
+blokus\model\ModelObserverImpl.class
+blokus\model\CellImpl.class
+blokus\model\Player.class
+blokus\model\Model.class
+blokus\model\ModelObserver.class
+blokus\model\BoardImpl.class
+blokus\controller\ControllerImpl.class
+blokus\model\PlayerImpl.class
+blokus\controller\Controller.class
+blokus\model\ModelImpl.class
+blokus\model\Board.class
+blokus\view\View.class
