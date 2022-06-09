@@ -1,6 +1,7 @@
 package blokus.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class BoardImpl implements Board{
@@ -9,6 +10,7 @@ public class BoardImpl implements Board{
     private int[][] board;
     private List<CellImpl> piece = new ArrayList<CellImpl>();
     private List<CellImpl> ordered = new ArrayList<CellImpl>();
+    private List<Integer> numbers = new ArrayList<Integer>();
     private CellImpl cell;
     private int isConnected;
 
@@ -96,9 +98,9 @@ public class BoardImpl implements Board{
                     if (piece.get(i).getCellHeight() == height) {
                         if(piece.get(i).getCellWidth() == width) {
                             piece.remove(i);
-                            if(checkCorner(height, width, color)) {
-                                isConnected--;
-                            }
+                            //if(checkCorner(height, width, color)) {
+                            //    isConnected--;
+                            //}
                             return;
                         }
                     }
@@ -112,9 +114,9 @@ public class BoardImpl implements Board{
             board[height][width] = color;
             cell = new CellImpl(height, width);
             piece.add(cell);
-            if(checkCorner(height, width, color)) {
-                isConnected++;
-            }
+            //if(checkCorner(height, width, color)) {
+            //    isConnected++;
+            //}
         }
         return;
     }
@@ -175,24 +177,36 @@ public class BoardImpl implements Board{
         piece.clear();
     }
 
-    public boolean checkPiece(int no) {
+    public boolean checkPiece(int no) { //NEEDS FIXING
         ordered.clear();
-        ordered.add(piece.get(0));
+        numbers.clear();
+        for(CellImpl p : piece) {
+            numbers.add(p.getCellHeight() * 10 + p.getCellWidth());
+        }
+        Collections.sort(numbers);
+        for(int number : numbers) {
+            int width = number % 10;
+            int height = (number - width) / 10;
+            CellImpl cell1 = new CellImpl(height, width);
+            ordered.add(cell1);
+        }
+
+        /*
         boolean added = false;
+        int placeholder = 0;
         for(int i = 1; i < piece.size(); i++) {
             CellImpl cell1 = piece.get(i);
+            placeholder = ordered.size();
             for(int j = ordered.size() - 1; j >= 0; j--) {
                 CellImpl cell2 = piece.get(j);
                 if(cell2.getCellHeight() > cell1.getCellHeight()) {
-                    ordered.add(j, cell1);
+                    placeholder = j;
                     added = true;
-                    break;
                 }
                 else if(cell2.getCellHeight() == cell1.getCellHeight()) {
                     if(cell2.getCellWidth() > cell1.getCellWidth()) {
-                        ordered.add(j, cell1);
+                        placeholder = j;
                         added = true;
-                        break;
                     }
                     else {
                         continue;
@@ -202,11 +216,11 @@ public class BoardImpl implements Board{
                     continue;
                 }
             }
-            if(!added) {
-                ordered.add(cell1);
-            }
+            //if(!added) {
+            ordered.add(placeholder, cell1);
+            //}
             added = false;
-        }
+        } */
         if(no == 1) {
             if(ordered.size() == 1) {
                 return true;

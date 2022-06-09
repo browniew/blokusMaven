@@ -56,7 +56,7 @@ public class ControllerImpl implements Controller{
             int piece = model.findPiece(height, width);
             if(model.checkPiece(piece)) {
                 if(model.getTurn() == 1) {
-                    if(!model.hasColor(0, 0, 5)) {
+                    if(!(model.hasColor(0, 0, 5) || model.hasColor(0, 0, 1))) {
                         return;
                     }
                 }
@@ -72,7 +72,7 @@ public class ControllerImpl implements Controller{
             int piece = model.findPiece(height, width);
             if(model.checkPiece(piece)) {
                 if(model.getTurn() == 2) {
-                    if(!model.hasColor(0, 19, 6)) {
+                    if(!(model.hasColor(0, 19, 6) || model.hasColor(0, 19, 2))) {
                         return;
                     }
                 }
@@ -88,7 +88,7 @@ public class ControllerImpl implements Controller{
             int piece = model.findPiece(height, width);
             if(model.checkPiece(piece)) {
                 if(model.getTurn() == 3) {
-                    if(!model.hasColor(19, 19, 7)) {
+                    if(!(model.hasColor(19, 19, 7) || model.hasColor(19, 19, 3))) {
                         return;
                     }
                 }
@@ -104,7 +104,7 @@ public class ControllerImpl implements Controller{
             int piece = model.findPiece(height, width);
             if(model.checkPiece(piece)) {
                 if(model.getTurn() == 4) {
-                    if(!model.hasColor(19, 0, 8)) {
+                    if(!(model.hasColor(19, 0, 8) || model.hasColor(19, 0, 4))) {
                         return;
                     }
                 }
