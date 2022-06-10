@@ -181,12 +181,12 @@ public class BoardImpl implements Board{
         ordered.clear();
         numbers.clear();
         for(CellImpl p : piece) {
-            numbers.add(p.getCellHeight() * 10 + p.getCellWidth());
+            numbers.add(p.getCellHeight() * 21 + p.getCellWidth());
         }
         Collections.sort(numbers);
         for(int number : numbers) {
-            int width = number % 10;
-            int height = (number - width) / 10;
+            int width = number % 21;
+            int height = (number - width) / 21;
             CellImpl cell1 = new CellImpl(height, width);
             ordered.add(cell1);
         }
@@ -559,7 +559,7 @@ public class BoardImpl implements Board{
                 }
                 else if(cell2.getCellHeight() - 1 == cell1.getCellHeight() && cell2.getCellWidth() + 1 == cell1.getCellWidth()) {
                     if(cell3.getCellHeight() == cell2.getCellHeight() && cell3.getCellWidth() - 1 == cell2.getCellWidth()) {
-                        if(cell4.getCellHeight() - 1 == cell2.getCellHeight() && cell2.getCellWidth() == cell3.getCellWidth()) {
+                        if(cell4.getCellHeight() - 1 == cell2.getCellHeight() && cell4.getCellWidth() == cell2.getCellWidth()) {
                             if(cell5.getCellHeight() - 1 == cell4.getCellHeight() && cell5.getCellWidth() == cell4.getCellWidth()) {
                                 return true;
                             }
@@ -881,7 +881,7 @@ public class BoardImpl implements Board{
                 }
                 else if(cell2.getCellHeight() - 1 == cell1.getCellHeight() && cell2.getCellWidth() + 1 == cell1.getCellWidth()) {
                     if(cell3.getCellHeight() == cell2.getCellHeight() && cell3.getCellWidth() - 1 == cell2.getCellWidth()) {
-                        if(cell4.getCellHeight() - 1 == cell2.getCellHeight() && cell4.getCellWidth() + 1 == cell3.getCellWidth()) {
+                        if(cell4.getCellHeight() - 1 == cell2.getCellHeight() && cell4.getCellWidth() + 1 == cell2.getCellWidth()) {
                             if(cell5.getCellHeight() == cell4.getCellHeight() && cell5.getCellWidth() - 1 == cell4.getCellWidth()) {
                                 return true;
                             }
