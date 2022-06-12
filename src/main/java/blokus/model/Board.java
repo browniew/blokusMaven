@@ -22,4 +22,6 @@ public interface Board {
 
     void checkWinner();
 
+    boolean checkAllCorners(int color);
+
 }

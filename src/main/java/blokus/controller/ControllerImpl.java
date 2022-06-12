@@ -54,14 +54,20 @@ public class ControllerImpl implements Controller{
     public void togglePieceBlue(int height, int width) {
         if(model.getTurn() == 1 && model.colorBlue(height, width)) {
             int piece = model.findPiece(height, width);
-            if(model.checkPiece(piece)) {
-                if(model.getTurn() == 1) {
+            if(model.hasColor(0, 0, 1)) {
+                if(model.checkPiece(piece) && model.checkAllCorners(model.getTurn())) {
+                    model.clearPiece(piece);
+                    model.changeColors();
+                }
+            }
+            else {
+                if(model.checkPiece(piece)) {
                     if(!(model.hasColor(0, 0, 5) || model.hasColor(0, 0, 1))) {
                         return;
                     }
+                    model.clearPiece(piece);
+                    model.changeColors();
                 }
-                model.clearPiece(piece);
-                model.changeColors();
             }
         }
     }
@@ -70,14 +76,20 @@ public class ControllerImpl implements Controller{
     public void togglePieceYellow(int height, int width) {
         if(model.getTurn() == 2 && model.colorYellow(height, width)) {
             int piece = model.findPiece(height, width);
-            if(model.checkPiece(piece)) {
-                if(model.getTurn() == 2) {
+            if(model.hasColor(0, 19, 2)) {
+                if(model.checkPiece(piece) && model.checkAllCorners(model.getTurn())) {
+                    model.clearPiece(piece);
+                    model.changeColors();
+                }
+            }
+            else {
+                if(model.checkPiece(piece)) {
                     if(!(model.hasColor(0, 19, 6) || model.hasColor(0, 19, 2))) {
                         return;
                     }
+                    model.clearPiece(piece);
+                    model.changeColors();
                 }
-                model.clearPiece(piece);
-                model.changeColors();
             }
         }
     }
@@ -86,14 +98,20 @@ public class ControllerImpl implements Controller{
     public void togglePieceRed(int height, int width) {
         if(model.getTurn() == 3 && model.colorRed(height, width)) {
             int piece = model.findPiece(height, width);
-            if(model.checkPiece(piece)) {
-                if(model.getTurn() == 3) {
+            if(model.hasColor(19, 19, 3)) {
+                if(model.checkPiece(piece) && model.checkAllCorners(model.getTurn())) {
+                    model.clearPiece(piece);
+                    model.changeColors();
+                }
+            }
+            else {
+                if(model.checkPiece(piece)) {
                     if(!(model.hasColor(19, 19, 7) || model.hasColor(19, 19, 3))) {
                         return;
                     }
+                    model.clearPiece(piece);
+                    model.changeColors();
                 }
-                model.clearPiece(piece);
-                model.changeColors();
             }
         }
     }
@@ -102,14 +120,20 @@ public class ControllerImpl implements Controller{
     public void togglePieceGreen(int height, int width) {
         if(model.getTurn() == 4 && model.colorGreen(height, width)) {
             int piece = model.findPiece(height, width);
-            if(model.checkPiece(piece)) {
-                if(model.getTurn() == 4) {
+            if(model.hasColor(19, 0, 4)) {
+                if(model.checkPiece(piece) && model.checkAllCorners(model.getTurn())) {
+                    model.clearPiece(piece);
+                    model.changeColors();
+                }
+            }
+            else {
+                if(model.checkPiece(piece)) {
                     if(!(model.hasColor(19, 0, 8) || model.hasColor(19, 0, 4))) {
                         return;
                     }
+                    model.clearPiece(piece);
+                    model.changeColors();
                 }
-                model.clearPiece(piece);
-                model.changeColors();
             }
         }
     }

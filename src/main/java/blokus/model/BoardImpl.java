@@ -170,6 +170,15 @@ public class BoardImpl implements Board{
         return false;
     }
 
+    public boolean checkAllCorners(int color){
+        for(CellImpl p : piece) {
+            if(checkCorner(p.getCellHeight(), p.getCellWidth(), color)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void changeColors() {
         for(CellImpl cell : piece) {
             board[cell.getCellHeight()][cell.getCellWidth()] = board[cell.getCellHeight()][cell.getCellWidth()] - 4;

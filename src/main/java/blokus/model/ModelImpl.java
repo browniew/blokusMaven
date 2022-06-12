@@ -115,6 +115,11 @@ public class ModelImpl implements Model {
     }
 
     @Override
+    public boolean checkAllCorners(int color) {
+        return board.checkAllCorners(color);
+    }
+
+    @Override
     public void addObserver(ModelObserver observer) {
         this.observers.add(observer);
     }
